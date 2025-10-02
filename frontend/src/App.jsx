@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -175,7 +175,7 @@ function App() {
             <div class="nav-container">
               <div class="nav-logo">
                 <a style={{ textDecoration: 'none', color: 'black' }} href="#home">
-                  <i class="logo"><img class="imgg" src="logo.png" alt="ICA" /></i>
+                  <i class="logo"><img class="imgg" src="./img/logo.png" alt="ICA" /></i>
 
                   {/* <span>Impetus Consulting Associate Pvt.Ltd.</span> */}
                 </a>
@@ -228,7 +228,7 @@ function App() {
                 <div class="hero-visual">
                   <div class="medical-icon-container">
                     {/* <!-- <i class="fas fa-hospital medical-icon"></i> --> */}
-                    <img src="unnamed.png" class="infinis" alt="" />
+                    <img src="./img/unnamed.png" class="infinis" alt="" />
                     {/* <img src="./heard.png" className='pulse-ring' alt="img" />
                     <img src="./heard.png" className='pulse-ring-2' alt="img" /> */}
                     {/* <svg
@@ -460,7 +460,7 @@ function App() {
               </div>
 
               <div class="team-grid">
-                <div class="team-card" style={{ backgroundImage: "url('./mam.jpg')" }}>
+                <div class="team-card" style={{ backgroundImage: "url('./img/mam.jpg')" }}>
                   <div class="team-photo">
 
                   </div>
@@ -477,7 +477,7 @@ function App() {
                   </div>
                 </div>
 
-                <div class="team-card" style={{ backgroundImage: "url('./atul.jpg')" }}>
+                <div class="team-card" style={{ backgroundImage: "url('./img/atul.jpg')" }}>
                   <div class="team-photo">
 
                   </div>
@@ -493,7 +493,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="team-card" style={{ backgroundImage: "url('./rahul.jpg')" }}>
+                <div className="team-card" style={{ backgroundImage: "url('./img/rahul.jpg')" }}>
                   <div className="team-photo">
                     {/* yahaan agar aapko koi overlay ya icon chahiye toh add karo, warna khali chod do */}
                   </div>
@@ -515,7 +515,7 @@ function App() {
 
 
 
-                <div class="team-card" style={{ backgroundImage: "url('./praveen.png')" }}>
+                <div class="team-card" style={{ backgroundImage: "url('./img/praveen.png')" }}>
                   <div class="team-photo">
 
                   </div>
@@ -532,7 +532,7 @@ function App() {
                   </div>
                 </div>
 
-                <div class="team-card" style={{ backgroundImage: "url('./ajay.jpg')" }}>
+                <div class="team-card" style={{ backgroundImage: "url('./img/ajay.jpg')" }}>
                   <div class="team-photo">
 
                   </div>
@@ -549,7 +549,7 @@ function App() {
                   </div>
                 </div>
 
-                <div class="team-card" style={{ backgroundImage: "url('./rohit.jpg')" }}>
+                <div class="team-card" style={{ backgroundImage: "url('./img/rohit.jpg')" }}>
                   <div class="team-photo">
 
                   </div>
@@ -565,9 +565,6 @@ function App() {
                     </div>
                   </div>
                 </div>
-
-
-
               </div>
 
               {/* <!-- Advisory Panel --> */}

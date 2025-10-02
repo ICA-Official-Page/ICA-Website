@@ -24,7 +24,7 @@ function PageLoader() {
     <div style={styles.loader}>
       <div style={styles.loaderContent}>
         <div style={styles.loaderIcon}>
-          <img src="logo.png" alt="ICA" style={styles.logoImg} />
+          <img src="./img/logo.png" alt="ICA" style={styles.logoImg} />
         </div>
         {/* <div style={styles.loaderText}>
           Loading...
