@@ -58,6 +58,8 @@ function App() {
   }, []);
 
   const [showModal, setShowModal] = useState(false);
+  const [teamModel, setTeamModel] = useState(false);
+  const [memberDetail, setMemberDetail] = useState({});
 
   useEffect(() => {
     if (showModal) {
@@ -69,6 +71,17 @@ function App() {
     // Cleanup in case component unmounts with modal open
     return () => document.body.classList.remove('modal-open');
   }, [showModal]);
+
+  useEffect(() => {
+    if (teamModel) {
+      document.body.classList.add('team-modal-open');
+    } else {
+      document.body.classList.remove('team-modal-open');
+    }
+
+    // Cleanup in case component unmounts with modal open
+    return () => document.body.classList.remove('team-modal-open');
+  }, [teamModel]);
 
 
   const [formData, setFormData] = useState({
@@ -114,7 +127,7 @@ function App() {
     try {
       // alert('come')
       const response = await axios.post('https://ica-website.onrender.com/send-mail', { name, email, subject, message }, {
-      // const response = await axios.post('http://localhost:9000/send-mail', { name, email, subject, message }, {
+        // const response = await axios.post('http://localhost:9000/send-mail', { name, email, subject, message }, {
         headers: {
           'Content-Type': 'application/json'
         },
@@ -148,6 +161,53 @@ function App() {
   };
 
   const [loading, setLoading] = useState(true);
+
+  const [team, setTeam] = useState([
+    {
+      name: 'Ayuksha Singh',
+      role: 'Founder & CEO',
+      description: '16+ years of experience with 5+ years in healthcare. Visionary behind innovative solutions like Infinis and Q Panel.',
+      expirence: '16+ Years Experience',
+      img: "./img/mam.jpg"
+    },
+    {
+      name: 'Atul Jalan',
+      role: 'Co-Founder',
+      description: 'Atul is a seasoned engineer with over 12 years of startup experience and 6+ years in trade-in technology businesses. He was a core team member at Safe Securities (formerly Lucideus), a $200M cybersecurity venture, and later, as CTO of InstaCash, drove innovations that built a successful $18M SaaS business.',
+      expirence: '18+ Years Experience',
+      img: "./img/atul.jpg"
+    },
+    {
+      name: 'Rahul Barman',
+      role: 'Operations Manager',
+      description: 'Founding member with 9+ years experience managing hospital contact center operations across 13+ hospitals.',
+      expirence: '9+ Years Experience',
+      img: "./img/rahul.jpg"
+    },
+    {
+      name: 'Praveen Tak',
+      role: 'Head of Product',
+      description: '16+ years in AI and healthcare product development, leading creation of AI-driven hospital solutions.',
+      expirence: '16+ Years Experience',
+      img: "./img/praveen.png"
+    },
+    {
+      name: 'Ajay Barman',
+      role: 'Head of Quality & Training',
+      description: '8+ years expertise ensuring NABH compliance and developing performance frameworks for hospital operations.',
+      expirence: '8+ Years Experience',
+      img: "./img/ajay.jpg"
+    },
+    {
+      name: 'Rohit Das',
+      role: 'Head of Human Resources',
+      description: '5+ years HR experience specializing in talent acquisition for healthcare technology roles and organizational development.',
+      expirence: '5+ Years Experience',
+      img: "./img/rohit.jpg"
+    }
+  ]);
+
+
 
 
   return (
@@ -435,7 +495,7 @@ function App() {
                     <i class="fas fa-shield-alt"></i>
                   </div>
                   <h4>Trusted Track Record</h4>
-                  <p>Over 13 hospitals in Rajasthan and Gujarat trust our systems</p>
+                  <p>Over 13 hospitals in Rajasthan trust our systems</p>
                 </div>
 
                 <div class="solution-card">
@@ -466,111 +526,33 @@ function App() {
               </div>
 
               <div class="team-grid">
-                <div class="team-card" style={{ backgroundImage: "url('./img/mam.jpg')" }}>
-                  <div class="team-photo">
+                <div className={teamModel ? 'advisor-blur-bg' : ''}></div>
+                {
+                  team?.map((curElem) => (
+                    <div onClick=
+                      {() => {
+                         setTeamModel(true);
+                         setMemberDetail(curElem);
+                      }}
+                      class="team-card" style={{ backgroundImage: `url(${curElem?.img})` }}>
+                      <div class="team-photo">
 
-                  </div>
-                  <div class="team-info"  >
-                    <h4>Ayuksha Singh</h4>
-                    <p class="team-role">Founder & CEO</p>
-                    <div className='forbg'>
-                      <p class="team-description">16+ years of experience with 5+ years in healthcare. Visionary
-                        behind innovative solutions like Infinis and Q Panel.</p>
-                      <div class="team-stats">
-                        <span>16+ Years Experience</span>
+                      </div>
+                      <div class="team-info"  >
+                        <h4>{curElem?.name}</h4>
+                        <p class="team-role">{curElem?.role}</p>
+                        <div className='forbg'>
+                          <p class="team-description">{curElem?.description}</p>
+                          <div class="team-stats">
+                            <span>{curElem?.expirence}</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                <div class="team-card" style={{ backgroundImage: "url('./img/atul.jpg')" }}>
-                  <div class="team-photo">
-
-                  </div>
-                  <div class="team-info">
-                    <h4  >Atul Jalan</h4>
-                    <p class="team-role">Co-Founder</p>
-                    <div className="forbg">
-                      <p class="team-description">Atul is a seasoned engineer with over 12 years of startup experience and 6+ years in trade-in technology businesses. He was a core team member at Safe Securities (formerly Lucideus), a $200M cybersecurity venture, and later, as CTO of InstaCash, drove innovations that built a successful $18M SaaS business.</p>
-                      <div class="team-stats">
-                        <span>18+ Years Experience</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="team-card" style={{ backgroundImage: "url('./img/rahul.jpg')" }}>
-                  <div className="team-photo">
-                    {/* yahaan agar aapko koi overlay ya icon chahiye toh add karo, warna khali chod do */}
-                  </div>
-
-                  <div className="team-info">
-                    <h4>Rahul Barman</h4>
-                    <p className="team-role">Operations Manager</p>
-                    <div className='forbg'>
-                      <p className="team-description">
-                        Founding member with 9+ years experience managing hospital contact center operations across 13+ hospitals.
-                      </p>
-                      <div className="team-stats">
-                        <span>9+ Years Experience</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  ))
+                }
 
 
-
-
-                <div class="team-card" style={{ backgroundImage: "url('./img/praveen.png')" }}>
-                  <div class="team-photo">
-
-                  </div>
-                  <div class="team-info">
-                    <h4>Praveen Tak</h4>
-                    <p class="team-role">Head of Product</p>
-                    <div className="forbg">
-                      <p class="team-description">16+ years in AI and healthcare product development, leading creation
-                        of AI-driven hospital solutions.</p>
-                      <div class="team-stats">
-                        <span>16+ Years Experience</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="team-card" style={{ backgroundImage: "url('./img/ajay.jpg')" }}>
-                  <div class="team-photo">
-
-                  </div>
-                  <div class="team-info">
-                    <h4>Ajay Barman</h4>
-                    <p class="team-role">Head of Quality & Training</p>
-                    <div className="forbg">
-                      <p class="team-description">8+ years expertise ensuring NABH compliance and developing
-                        performance frameworks for hospital operations.</p>
-                      <div class="team-stats">
-                        <span>8+ Years Experience</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="team-card" style={{ backgroundImage: "url('./img/rohit.jpg')" }}>
-                  <div class="team-photo">
-
-                  </div>
-                  <div class="team-info">
-                    <h4>Rohit Das</h4>
-                    <p class="team-role">Head of Human Resources</p>
-                    <div className="forbg">
-                      <p class="team-description">5+ years HR experience specializing in talent acquisition for
-                        healthcare technology roles and organizational development.</p>
-                      <div class="team-stats">
-                        <span>5+ Years Experience</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* <!-- Advisory Panel --> */}
@@ -600,9 +582,9 @@ function App() {
               </div>
 
               {showModal && (
-                <div className="advisor-modal">
-                  <div className="advisor-modal-content">
-                    <button className="modal-close" onClick={() => setShowModal(false)}>
+                <div className="team-modal">
+                  <div className="team-modal-content">
+                    <button className="team-modal-close" onClick={() => setShowModal(false)}>
                       &times;
                     </button>
                     <h3>Dr. Mala Airun</h3>
@@ -630,6 +612,23 @@ function App() {
                         innovation</b>. With experts like <b>Dr. Mala Airun</b>, we are constantly refining our solutions to
                       ensure that they add real value to hospitals, clinics, and healthcare professionals across
                       India.</p>
+                  </div>
+                </div>
+              )}
+
+              {teamModel && (
+                <div className="team-modal">
+                  <div className="team-modal-content">
+                    <button className="team-modal-close" onClick={() => {
+                      setTeamModel(false);
+                      setMemberDetail({});
+                    }}>
+                      &times;
+                    </button>
+                    <img className='team-photo-model' src={memberDetail?.img} alt={memberDetail?.img} />
+                    <h3>{memberDetail?.name}</h3>
+                    <p><b>{memberDetail?.role}</b></p>
+                    <p>{memberDetail?.description}</p>
                   </div>
                 </div>
               )}
@@ -683,7 +682,7 @@ function App() {
                     </div>
                     <div class="contact-details">
                       <h4>Offices</h4>
-                      <p>Rajasthan, Gujarat</p>
+                      <p>Jaipur, Rajasthan</p>
                     </div>
                   </div>
                 </div>

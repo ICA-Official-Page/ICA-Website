@@ -88,15 +88,12 @@ app.post('/send-mail', async (req, res) => {
     `;
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false, // 465 ke saath true hota hai, 587 ke saath false
+      service: 'gmail',
       auth: {
         user: process.env.USER_EMAIL,
-        pass: process.env.EMAIL_PASS, // yahan app password use karo
+        pass: process.env.EMAIL_PASS,
       },
     });
-
 
     const mailOptions = {
       from: `"ICA Website Contact" <${process.env.USER_EMAIL}>`,

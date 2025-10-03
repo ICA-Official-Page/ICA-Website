@@ -755,6 +755,91 @@ html {
 }
 
 /* Team Section */
+
+
+body.team-modal-open {
+    overflow: hidden;
+    touch-action: none;
+    /* Optional: mobile devices ke liye */
+}
+
+.team-photo-model {
+    /* height: 400px; */
+    /* Image's height as visual */
+    width: 100%;
+    /* Full card width */
+    /* Background image already set on .team-card */
+    background: transparent;
+    /* transparent so image in background shows through */
+    border-radius: 20px 20px 0 0;
+    /* Rounded top corners */
+}
+
+/* Modal overlay */
+.team-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(34, 38, 45, 0.32);
+    backdrop-filter: blur(6px);
+    /* Extra blur layer */
+}
+
+/* Modal content box */
+.team-modal-content {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 32px rgba(34, 38, 45, 0.18);
+    max-width: 35%;
+    min-width: 300px;
+    position: relative;
+    animation: modalIn 0.4s cubic-bezier(.76, .04, .32, 1) forwards;
+
+    max-height: 90vh;
+    /* Max height viewport ke 80% se set karo */
+    overflow-y: auto;
+    /* Content height cross kare to scrollable bano */
+    box-sizing: border-box;
+    /* Padding ko height me count karo */
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Modal Close Button */
+.team-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 1.8rem;
+    background: transparent;
+    border: none;
+    color: #2563eb;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #10b981;
+}
+
+
 .team {
     padding: var(--section-padding);
     background: var(--light-gray);
@@ -808,7 +893,7 @@ html {
 }
 
 .team-info {
-    
+
 
     /* height: 400px; */
     /* White ki jagah transparent */
@@ -856,6 +941,12 @@ html {
     line-height: 1.6;
     color: white;
     margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Maximum 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .team-stats span {
