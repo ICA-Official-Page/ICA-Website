@@ -93,8 +93,8 @@ app.post('/send-mail', async (req, res) => {
       secure: false,
       requireTLS: true,
       auth: {
-        user: process.env.USER_EMAIL,
-        pass: process.env.EMAIL_PASS,
+        user: "your@email.com",
+        pass: "yourapppassword"
       }
     });
 
