@@ -8,7 +8,12 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors()); // add the frontend URI 
+app.use(cors({
+  origin: "https://ica-website.onrender.com",
+  credentials: true
+},
+
+)); // add the frontend URI 
 
 app.use(express.json());
 
