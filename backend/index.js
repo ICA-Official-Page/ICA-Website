@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: "https://ica-website.onrender.com",
+  origin: "https://ica-website-w4rr.onrender.com",
   credentials: true
 },
 
