@@ -90,12 +90,11 @@ app.post('/send-mail', async (req, res) => {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
-      secure: false,
-      requireTLS: true,
+      secure: false, // 465 ke saath true hota hai, 587 ke saath false
       auth: {
-        user: "your@email.com",
-        pass: "yourapppassword"
-      }
+        user: process.env.USER_EMAIL,
+        pass: process.env.EMAIL_PASS, // yahan app password use karo
+      },
     });
 
 
