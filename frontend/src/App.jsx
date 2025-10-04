@@ -126,13 +126,8 @@ function App() {
 
     try {
       // alert('come')
-<<<<<<< HEAD
       const response = await axios.post('https://ica-website.onrender.com/send-mail', { name, email, subject, message }, {
         // const response = await axios.post('http://localhost:9000/send-mail', { name, email, subject, message }, {
-=======
-      const response = await axios.post('https://ica-website-w4rr.onrender.com/send-mail', { name, email, subject, message }, {
-      // const response = await axios.post('http://localhost:9000/send-mail', { name, email, subject, message }, {
->>>>>>> a456a5f008535ae9bdbb365c5e2426f7690b7cf7
         headers: {
           'Content-Type': 'application/json'
         },

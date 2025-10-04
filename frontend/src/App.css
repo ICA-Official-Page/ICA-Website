@@ -942,7 +942,7 @@ body.team-modal-open {
     color: white;
     margin-bottom: 1rem;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     /* Maximum 3 lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
