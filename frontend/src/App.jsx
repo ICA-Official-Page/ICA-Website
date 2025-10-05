@@ -126,7 +126,7 @@ function App() {
 
     try {
       // alert('come')
-      const response = await axios.post('http://103.205.141.41:9000/send-mail', { name, email, subject, message }, {
+      const response = await axios.post('https://icaimpetus.com/send-mail', { name, email, subject, message }, {
         // const response = await axios.post('http://localhost:9000/send-mail', { name, email, subject, message }, {
         headers: {
           'Content-Type': 'application/json'
